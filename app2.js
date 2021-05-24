@@ -13,11 +13,6 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-
-
-
-
-
 var app = express();
 
 // view engine setup
@@ -32,9 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 
-const server = app.listen(4000, function () {
-  console.log(`Listening on port ${4000}`);
-  console.log(`http://localhost:${4000}`);
+const server = app.listen(process.env.PORT, function () {
+  console.log(`Listening on port ${process.env.PORT}`);
+  console.log(`http://localhost:${process.env.PORT}`);
 });
 
 // Socket setup
@@ -58,14 +53,7 @@ io.on('connection', (socket) => {
     io.emit('chat message', data);
   });
 
-    socket
-        
-        
-        
-        
-        
-        
-        .on('end', function () {
+  socket.on('end', function () {
     socket.disconnect();
     console.log('it will disconnet connection');
   });
