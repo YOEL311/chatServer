@@ -27,9 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 
-const server = app.listen(process.env.PORT, function () {
-  console.log(`Listening on port ${process.env.PORT}`);
-  console.log(`http://localhost:${process.env.PORT}`);
+const PORT = process.env.PORT || 3000;
+
+const server = app.listen(PORT, function () {
+  console.log(`Listening on port ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
 
 // Socket setup
