@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
   socket.on('chat message', function (data) {
     console.log('🚀 ~ file: app2.js ~ line 51 ~ data', data);
     data.time = Date.now();
-    io.emit('chat message', data);
+    io.broadcast.emit('chat message', data);
   });
 
   socket.on('end', function () {
